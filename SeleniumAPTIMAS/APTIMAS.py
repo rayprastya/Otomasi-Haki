@@ -92,15 +92,15 @@ class aptims(object):
                 self.driver.find_element_by_xpath('//*[@id="kota_pertama_umumkan"]').send_keys(kota)
                 self.driver.find_element_by_xpath('//*[@id="keterangan"]').send_keys(keterangan)
 
-                self.driver.find_element_by_xpath('//*[@id="file_ciptaan"]').send_keys(os.getcwd()+"/SeleniumAPTIMAS/FileCiptaan/"+str(fileciptaan)+".pdf")
+                self.driver.find_element_by_xpath('//*[@id="file_ciptaan"]').send_keys(os.getcwd()+"/FileCiptaan/"+str(fileciptaan)+".pdf")
 
-                self.driver.find_element_by_xpath('//*[@id="ktp"]').send_keys(os.getcwd()+"/SeleniumAPTIMAS/FileCiptaan/"+str(fileciptaan)+".pdf")
+                self.driver.find_element_by_xpath('//*[@id="ktp"]').send_keys(os.getcwd()+"/FileCiptaan/"+str(fileciptaan)+".pdf")
 
-                self.driver.find_element_by_xpath('//*[@id="file_pernyataan"]').send_keys(os.getcwd()+"/SeleniumAPTIMAS/FileCiptaan/"+str(fileciptaan)+".pdf")
+                self.driver.find_element_by_xpath('//*[@id="file_pernyataan"]').send_keys(os.getcwd()+"/FileCiptaan/"+str(fileciptaan)+".pdf")
 
-                self.driver.find_element_by_xpath('//*[@id="file_pengalihan"]').send_keys(os.getcwd()+"/SeleniumAPTIMAS/FileCiptaan/"+str(fileciptaan)+".pdf")
+                self.driver.find_element_by_xpath('//*[@id="file_pengalihan"]').send_keys(os.getcwd()+"/FileCiptaan/"+str(fileciptaan)+".pdf")
 
-                self.driver.find_element_by_xpath('//*[@id="team1"]/div[2]/div/input').send_keys("alamat")
+                self.driver.find_element_by_xpath('//*[@id="team1"]/div[2]/div/input').send_keys(alamat)
 
                 self.driver.find_element_by_xpath('/html/body/div[2]/div/section[2]/div/div[1]/div/div[2]/form/button').click()
 
@@ -349,19 +349,19 @@ class aptims(object):
                 #SURAT KUASA   
                 #self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[1]/div/div/singleupload/span[1]/input[1]').send_keys(str(rootPath) + "/Haki-otomatis-master/FileCiptaan/"+str(fileciptaan)+".pdf")
                 #ciptaan
-                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[7]/div/div/multipleupload/span[1]/input[1]').send_keys(os.getcwd()+"/SeleniumAPTIMAS/FileCiptaan/"+str(fileciptaan)+".pdf")
+                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[7]/div/div/multipleupload/span[1]/input[1]').send_keys(os.getcwd()+"/FileCiptaan/"+str(fileciptaan)+".pdf")
                 #ktp
-                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[4]/div/div/singleupload/span[1]/input[1]').send_keys(os.getcwd()+"/SeleniumAPTIMAS/FileKTP/"+str(ktp)+".pdf")
+                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[4]/div/div/singleupload/span[1]/input[1]').send_keys(os.getcwd()+"/FileKTP/"+str(ktp)+".pdf")
                 #pernyataan
-                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[6]/div/div/singleupload/span[1]/input[1]').send_keys(os.getcwd()+"/SeleniumAPTIMAS/FilePernyataan/"+str(pernyataan)+".pdf")    
+                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[6]/div/div/singleupload/span[1]/input[1]').send_keys(os.getcwd()+"/FilePernyataan/"+str(pernyataan)+".pdf")    
                 #pengalihan
-                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[8]/div/div/singleupload/span[1]/input[1]').send_keys(os.getcwd()+"/SeleniumAPTIMAS/FilePengalihan/"+str(pengalihan)+".pdf")
+                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[8]/div/div/singleupload/span[1]/input[1]').send_keys(os.getcwd()+"/FilePengalihan/"+str(pengalihan)+".pdf")
                 #surat umkm
-                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[2]/div/div/singleupload/span[1]/input[1]').send_keys(os.getcwd()+"/SeleniumAPTIMAS/FileUMKM/"+str(umkm)+".pdf")
+                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[2]/div/div/singleupload/span[1]/input[1]').send_keys(os.getcwd()+"/FileUMKM/"+str(umkm)+".pdf")
                 # salinan akta hukum
-                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[3]/div/div/singleupload/span[1]/input[1]').send_keys(os.getcwd()+"/SeleniumAPTIMAS/FileBadanHukum/"+str(aktahukum)+".pdf")
+                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[3]/div/div/singleupload/span[1]/input[1]').send_keys(os.getcwd()+"/FileBadanHukum/"+str(aktahukum)+".pdf")
                 #npwp
-                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[5]/div/div/singleupload/span[1]/input[1]').send_keys(os.getcwd()+"/SeleniumAPTIMAS/FileNPWP/"+str(npwp)+".pdf")
+                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[5]/div/div/singleupload/span[1]/input[1]').send_keys(os.getcwd()+"/FileNPWP/"+str(npwp)+".pdf")
                 
 
                 self.driver.find_element_by_xpath('//*[@id="createform"]/div[6]/div[1]/input').click()

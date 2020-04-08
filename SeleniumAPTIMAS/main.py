@@ -35,7 +35,7 @@ password=input()
 
 #path ='SeleniumAPTIMAS/aptimas.xlsx'
 
-path=os.getcwd()+"/SeleniumAPTIMAS/Aptimas.xlsx"
+path=os.getcwd()+"/Aptimas.xlsx"
 
 jalan=APTIMAS.aptims(date, name, address, city, zip_code, province, people, username, password, path)
 jalan.aptimas()
