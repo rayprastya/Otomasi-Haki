@@ -5,3 +5,6 @@ Langkah-langkah
 2. kemudian jalankan python main.py yang terdapat pada folder awal
 3. tunggu proses inputan pada web Aptimas
 4. setelah proses inputan selesai kemudian dilanjutkan dengan input data ke web E-Haki
+
+#kurang
+pip install xlutils

@@ -1,7 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+import XLUtils
 from time import sleep
 import os
+from utils import get_project_root
 
 class EHaki(object):cd.
     def __init__(self, title, description, date, name, address, city, zip_code, province, people):
@@ -15,7 +18,8 @@ class EHaki(object):cd.
         self.zip_code = zip_code
         self.province = province
         self.people = people
-        
+        self.path = 
+        self.rootPath = os.path.abspath(get_project_root())
     
     def web(self):
         self.driver.get('https://e-hakcipta.dgip.go.id/login')
@@ -215,22 +219,86 @@ class EHaki(object):cd.
         sleep(5)
 
     def lampiran(self):
-        self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[3]/div/div/singleupload/span[1]').click()        
+        
+
+        path='Haki-otomatis-master/Haki.xlsx'
+
+        rows=XLUtils.getRowCount(path,'Sheet1')
+
+        count = 0
+
+        for r in range(2,rows+1):
+            timsentra=XLUtils.readData(path,"Sheet1",r,1)
+            aktahukum=XLUtils.readData(path,"Sheet1",r,2)
+            ktp=XLUtils.readData(path,"Sheet1",r,3)
+            npwp=XLUtils.readData(path,"Sheet1",r,4)
+            pernyataan=XLUtils.readData(path,"Sheet1",r,5)
+            ciptaan=XLUtils.readData(path,"Sheet1",r,6)
+            pengalihan=XLUtils.readData(path,"Sheet1",r,7)
+
+            if timsentra:
+                #SURAT KUASA   
+                #self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[1]/div/div/singleupload/span[1]/input[1]').send_keys(str(rootPath) + "/Haki-otomatis-master/FileCiptaan/"+str(fileciptaan)+".pdf")
+                #surat umkm
+                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[2]/div/div/singleupload/span[1]/input[1]').send_keys(str(rootPath) + "/Haki-otomatis-master/FileUmkm/"+str(umkm)+".pdf")
+                # salinan akta hukum
+                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[3]/div/div/singleupload/span[1]/input[1]').send_keys(str(rootPath) + "/Haki-otomatis-master/FileBadanHukum/"+str(badanhukum)+".pdf")
+                #ktp
+                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[4]/div/div/singleupload/span[1]/input[1]').send_keys(str(rootPath) + "/Haki-otomatis-master/FileKTP/"+str(ktp)+".pdf")
+                #npwp
+                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[5]/div/div/singleupload/span[1]/input[1]').send_keys(str(rootPath) + "/Haki-otomatis-master/FileNPWP/"+str(npwp)+".pdf")
+                #pernyataan
+                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[6]/div/div/singleupload/span[1]/input[1]').send_keys(str(rootPath) + "/Haki-otomatis-master/FilePernyataan/"+str(pernyataan)+".pdf")
+                #ciptaan
+                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[7]/div/div/multipleupload/span[1]/input[1]').send_keys(str(rootPath) + "/Haki-otomatis-master/FileCiptaan/"+str(ciptaan)+".pdf")
+                #pengalihan
+                self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[8]/div/div/singleupload/span[1]/input[1]').send_keys(str(rootPath) + "/Haki-otomatis-master/FilePengalihan/"+str(pengalihan)+".pdf")
+
+                self.driver.find_element_by_xpath('//*[@id="createform"]/div[6]/div[1]/input').click()
+
+        #self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[3]/div/div/singleupload/span[1]').click()        
         #path = r"C:/Innal/Poltekpos/IRC"
         #nameFile = filePath + ".pdf"
         #result = os.path.join(path, nameFile)
         #pdf = os.path.abspath('C:\Innal\Poltekpos\IRC\ST Tim Sentra KI Poltekpos.pdf')
         #self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[3]/div/div/singleupload/span[1]').send_keys(pdf)
-        sleep(15)
-        self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[5]/div/div/singleupload/span[1]').click()
-        sleep(15)
-        self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[7]/div/div/multipleupload/span[1]').click()
-        sleep(15)
-        self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[4]/div/div/singleupload/span[1]').click()
-        sleep(15)
-        self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[6]/div/div/singleupload/span[1]').click()
-        sleep(15)
-        self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[8]/div/div/singleupload/span[1]').click()
-        sleep(15)
-        self.driver.find_element_by_xpath('//*[@id="createform"]/div[6]/div[1]/input').click()
-        sleep(1)
+        #sleep(15)
+        #self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[5]/div/div/singleupload/span[1]').click()
+        #sleep(15)
+        #self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[7]/div/div/multipleupload/span[1]').click()
+        #sleep(15)
+        #self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[4]/div/div/singleupload/span[1]').click()
+        #sleep(15)
+        #self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[6]/div/div/singleupload/span[1]').click()
+        #sleep(15)
+        #self.driver.find_element_by_xpath('//*[@id="createform"]/div[5]/div[2]/div/div[8]/div/div/singleupload/span[1]').click()
+        #sleep(15)
+        #self.driver.find_element_by_xpath('//*[@id="createform"]/div[6]/div[1]/input').click()
+        #sleep(1)
+
+
+
+
+
+    def status(self):
+        self.driver.get('https://aptimas.poltekpos.ac.id/login')
+        sleep(2)
+        self.driver.find_element_by_xpath('/html/body/div[2]/div[2]/form/div[1]/input').send_keys('0410118609')
+        sleep(2)
+        self.driver.find_element_by_xpath('//*[@id="password"]').send_keys('lppm.poltekpos.ac.id')
+        sleep(2)
+        self.driver.find_element_by_xpath('//*[@id="loginBtn"]').click()
+        sleep(2)
+        self.driver.find_element_by_xpath('/html/body/div[2]/div/section[2]/div/div/div/div[2]/div[1]/div[4]/form').send_keys(self.title)
+        sleep(2)
+        self.driver.find_element_by_xpath('/html/body/div[2]/div/section[2]/div/div/div/div[2]/div[1]/div[4]/form/div/span/button').click()
+        sleep(2)
+        self.driver.find_element_by_xpath('//*[@id="formbulk"]/table/tbody/tr[2]/td[6]/a[1]').click()
+        sleep(2)
+        self.driver.find_element_by_xpath('//*[@id="jenis_haki"]').click()
+        sleep(2)
+        self.driver.find_element_by_xpath('//*[@id="jenis_haki"]/option[4]').click()
+        sleep(2)
+        self.driver.find_element_by_xpath('/html/body/div[2]/div/section[2]/div/div[2]/div[2]/div[2]/form/input').click()
+        sleep(2)
+        

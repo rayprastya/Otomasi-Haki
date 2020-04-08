@@ -1,5 +1,6 @@
-import Haki
-
+import xlutils
+import os
+import APTIMAS
 
 name=[0] * 3
 address=[0] * 3
@@ -8,10 +9,7 @@ zip_code=[0] * 3
 province=[0] * 3
 
 
-print ("Masukan Judul : ")
-title=input()
-print ("Masukan deskripsi : ")
-decription=input()
+202
 print ("Masukan tanggal Dibuat : (format 2020-01-12)")
 date=input()
 
@@ -29,11 +27,23 @@ for x in range (people):
     zip_code[x]=input()
     print("Masukan Provinsi : (Wajib Huruf Kecil !!!)")
     province[x]=input()
- 
-jalan=Haki.EHaki(title, decription, date, name, address, city, zip_code, province, people)
+
+print ("Masukan username APTIMAS anda: ")
+username=input()
+print ("Masukan password APTIMAS anda: ")
+password=input()
+
+#path ='SeleniumAPTIMAS/aptimas.xlsx'
+
+path=os.getcwd()+"/SeleniumAPTIMAS/Aptimas.xlsx"
+
+jalan=APTIMAS.aptims(date, name, address, city, zip_code, province, people, username, password, path)
+jalan.aptimas()
+jalan.isian()
 jalan.web()
 jalan.permohonan_baru()
 jalan.data_pencipta()
 jalan.pemegang_hak_cipta()
 jalan.lampiran()
 jalan.status()
+jalan.billing()
